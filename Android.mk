@@ -2,28 +2,20 @@
 #
 LOCAL_PATH := $(call my-dir)
 
-# Determine whether to build mincrypt from system/core or from
-# external/libmincrypt. The mincrypt source is temporarily present in both
-# locations during the process of moving mincrypt to external/libmincrypt.
-# TODO(mnissler): Remove this after the transition is complete.
-ifndef MINCRYPT_STANDALONE
-MINCRYPT_STANDALONE := true
-endif
-
-ifeq ($(MINCRYPT_STANDALONE),true)
-
 include $(CLEAR_VARS)
-LOCAL_MODULE := libmincrypt
+LOCAL_MODULE := libconstrainedcrypto
 LOCAL_SRC_FILES := dsa_sig.c p256.c p256_ec.c p256_ecdsa.c rsa.c sha.c sha256.c
 LOCAL_CFLAGS := -Wall -Werror
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
+LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/include
 include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := libmincrypt
+LOCAL_MODULE := libconstrainedcrypto
 LOCAL_SRC_FILES := dsa_sig.c p256.c p256_ec.c p256_ecdsa.c rsa.c sha.c sha256.c
 LOCAL_CFLAGS := -Wall -Werror
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
+LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/include
 include $(BUILD_HOST_STATIC_LIBRARY)
 
 include $(LOCAL_PATH)/test/Android.mk
-
-endif  # MINCRYPT_STANDALONE == true

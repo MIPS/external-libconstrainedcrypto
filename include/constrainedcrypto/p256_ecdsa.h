@@ -24,20 +24,30 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef SYSTEM_CORE_INCLUDE_MINCRYPT_DSA_SIG_H_
-#define SYSTEM_CORE_INCLUDE_MINCRYPT_DSA_SIG_H_
+#ifndef CONSTRAINEDCRYPTO_P256_ECDSA_H_
+#define CONSTRAINEDCRYPTO_P256_ECDSA_H_
 
-#include "mincrypt/p256.h"
+// Using current directory as relative include path here since
+// this code typically gets lifted into a variety of build systems
+// and directory structures.
+#include "p256.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-// Returns 0 if input sig is not a valid ASN.1 sequence
-int dsa_sig_unpack(unsigned char* sig, int sig_len, p256_int* r_int, p256_int* s_int);
+// Returns 0 if {r,s} is not a signature on message for
+// public key {key_x,key_y}.
+//
+// Note: message is a p256_int.
+// Convert from a binary string using p256_from_bin().
+int p256_ecdsa_verify(const p256_int* key_x,
+                      const p256_int* key_y,
+                      const p256_int* message,
+                      const p256_int* r, const p256_int* s);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* SYSTEM_CORE_INCLUDE_MINCRYPT_DSA_SIG_H_ */
+#endif  // CONSTRAINEDCRYPTO_P256_ECDSA_H_

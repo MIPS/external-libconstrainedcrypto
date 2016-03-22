@@ -24,8 +24,8 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef SYSTEM_CORE_INCLUDE_MINCRYPT_LITE_P256_H_
-#define SYSTEM_CORE_INCLUDE_MINCRYPT_LITE_P256_H_
+#ifndef CONSTRAINEDCRYPTO_LITE_P256_H_
+#define CONSTRAINEDCRYPTO_LITE_P256_H_
 
 // Collection of routines manipulating 256 bit unsigned integers.
 // Just enough to implement ecdsa-p256 and related algorithms.
@@ -159,4 +159,4 @@ void p256_from_bin(const uint8_t src[P256_NBYTES], p256_int* dst);
 }
 #endif
 
-#endif  // SYSTEM_CORE_INCLUDE_MINCRYPT_LITE_P256_H_
+#endif  // CONSTRAINEDCRYPTO_LITE_P256_H_

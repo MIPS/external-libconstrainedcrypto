@@ -30,8 +30,8 @@
 #include <string.h>
 #include <sys/cdefs.h>
 
-#include "mincrypt/rsa.h"
-#include "mincrypt/sha.h"
+#include "constrainedcrypto/rsa.h"
+#include "constrainedcrypto/sha.h"
 
 #ifndef __unused
 #define __unused __attribute__((unused))

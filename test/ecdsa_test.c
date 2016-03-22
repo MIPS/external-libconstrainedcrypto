@@ -30,10 +30,10 @@
 #include <string.h>
 #include <sys/cdefs.h>
 
-#include "mincrypt/dsa_sig.h"
-#include "mincrypt/p256.h"
-#include "mincrypt/p256_ecdsa.h"
-#include "mincrypt/sha256.h"
+#include "constrainedcrypto/dsa_sig.h"
+#include "constrainedcrypto/p256.h"
+#include "constrainedcrypto/p256_ecdsa.h"
+#include "constrainedcrypto/sha256.h"
 
 #ifndef __unused
 #define __unused __attribute__((__unused__))
